@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Core\Implementations\Drop\" />
     <Folder Include="Core\Implementations\Rename\" />
     <Folder Include="Core\Interfaces\Rename\" />
   </ItemGroup>

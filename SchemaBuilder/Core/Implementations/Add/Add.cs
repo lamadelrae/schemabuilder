@@ -1,5 +1,4 @@
 ﻿using SchemaBuilder.Core.Interfaces.Add;
-using SchemaBuilder.Core.Interfaces.Base;
 using SchemaBuilder.Models;
 
 namespace SchemaBuilder.Core.Implementations.Add

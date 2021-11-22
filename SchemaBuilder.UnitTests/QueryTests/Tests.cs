@@ -20,6 +20,9 @@ namespace SchemaBuilder.UnitTests
             Add().Table("TableName")
                  .Column("ColumnName", x => x.Guid())
                  .Column("ColumnName", x => x.Int());
+
+            Drop().Table("TableName");
+            Drop().Column("ColumnName").In("TableName");
         }
     }
 }

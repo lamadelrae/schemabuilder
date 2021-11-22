@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SchemaBuilder.Core.Interfaces.Drop
+﻿namespace SchemaBuilder.Core.Interfaces.Drop
 {
-    internal interface IDropColumn
+    public interface IDropColumn
     {
+        public void In(string tableName);
     }
 }

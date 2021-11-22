@@ -1,9 +1,8 @@
-﻿using SchemaBuilder.Core.Interfaces.Base;
-using SchemaBuilder.Models;
+﻿using SchemaBuilder.Models;
 
 namespace SchemaBuilder.Core.Interfaces.Add
 {
-    public interface IAddTable : IOperation
+    public interface IAddTable
     {
         IAddTable Column(string columnName, Func<Column, Column> func);
     }

@@ -1,8 +1,6 @@
-﻿using SchemaBuilder.Core.Interfaces.Base;
-
-namespace SchemaBuilder.Core.Interfaces.Add
+﻿namespace SchemaBuilder.Core.Interfaces.Add
 {
-    public interface IAddColumn : IOperation
+    public interface IAddColumn
     {
         void In(string tableName);
     }
