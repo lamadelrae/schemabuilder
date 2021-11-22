@@ -1,6 +1,7 @@
 ## Schema builder project in .NET 6.
 <br/>
-Syntax: 
+Syntax: <br>
+
 ```
 public class DataScript : Script
 {
@@ -35,6 +36,7 @@ public class DataRenaming : Script
 	}
 }
 ```
+
 As you can see, we have a structure where each class is a script, and when you instance the Script, you have to inform the script id.
 Internally, the schema builder is going to order these scripts by their id and execute them, so it is very important to never alter the order of the scripts.
 SchemaBuilder will create an internal table to store all the Scripts so it knows what to run and what not to run.
