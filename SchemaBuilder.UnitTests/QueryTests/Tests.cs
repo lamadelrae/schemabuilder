@@ -22,7 +22,8 @@ namespace SchemaBuilder.UnitTests
                  .Column("ColumnName", x => x.Int());
 
             Drop().Table("TableName");
-            Drop().Column("ColumnName").In("TableName");
+            Drop().Column("ColumnName")
+                    .In("TableName");
         }
     }
 }

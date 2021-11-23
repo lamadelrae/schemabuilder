@@ -1,6 +1,8 @@
-﻿namespace SchemaBuilder.Core.Interfaces.Drop
+﻿using SchemaBuilder.Core.Interfaces.Base;
+
+namespace SchemaBuilder.Core.Interfaces.Drop
 {
-    public interface IDrop
+    public interface IDrop : IRoot
     {
         IDropColumn Column(string columnName);
 

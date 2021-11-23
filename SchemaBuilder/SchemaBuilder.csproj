@@ -9,6 +9,8 @@
   <ItemGroup>
     <Folder Include="Core\Implementations\Rename\" />
     <Folder Include="Core\Interfaces\Rename\" />
+    <Folder Include="Dispatcher\" />
+    <Folder Include="Translator\" />
   </ItemGroup>
 
 </Project>

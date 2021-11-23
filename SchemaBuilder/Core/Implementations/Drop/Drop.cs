@@ -1,23 +1,24 @@
-﻿using SchemaBuilder.Core.Interfaces.Drop;
+﻿using SchemaBuilder.Core.Interfaces.Base;
+using SchemaBuilder.Core.Interfaces.Drop;
 
 namespace SchemaBuilder.Core.Implementations.Drop
 {
     public class Drop : IDrop
     {
-        public IDropTable DropTable { get; private set; }
-
-        public IDropColumn DropColumn { get; private set; }
+        public List<IOperation> Operations => new List<IOperation>();
 
         public IDropColumn Column(string columnName)
         {
-            DropColumn = new DropColumn();
-            return DropColumn;
+            var dropColumn = new DropColumn(columnName);
+            Operations.Add(dropColumn);
+            return dropColumn;
         }
 
         public IDropTable Table(string tableName)
         {
-            DropTable = new DropTable();
-            return DropTable;
+            var dropTable = new DropTable(tableName);
+            Operations.Add(dropTable);
+            return dropTable;
         }
     }
 }

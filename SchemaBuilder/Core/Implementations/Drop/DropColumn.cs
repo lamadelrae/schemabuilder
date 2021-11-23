@@ -2,11 +2,20 @@
 
 namespace SchemaBuilder.Core.Implementations.Drop
 {
-    internal class DropColumn : IDropColumn
+    public class DropColumn : IDropColumn
     {
+        public string? ColumnName { get; private set; }
+
+        public string? TableName { get; private set; }
+
+        public DropColumn(string columnName)
+        {
+            ColumnName = columnName;
+        }
+
         public void In(string tableName)
         {
-            throw new NotImplementedException();
+            TableName = tableName;
         }
     }
 }

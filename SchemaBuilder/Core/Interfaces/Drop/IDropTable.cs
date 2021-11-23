@@ -1,4 +1,6 @@
-﻿namespace SchemaBuilder.Core.Interfaces.Drop
+﻿using SchemaBuilder.Core.Interfaces.Base;
+
+namespace SchemaBuilder.Core.Interfaces.Drop
 {
-    public interface IDropTable { }
+    public interface IDropTable : IOperation { }
 }
