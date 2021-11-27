@@ -1,13 +1,14 @@
 ﻿using SchemaBuilder.Core.Interfaces.Add;
 using SchemaBuilder.Models;
+using SchemaBuilder.SharedKernel;
 
 namespace SchemaBuilder.Core.Implementations.Add
 {
     public class AddColumn : IAddColumn
     {
-        public string ColumnName { get; private set; }
+        public string ColumnName { get; private set; } = string.Empty;
 
-        public string TableName { get; private set; }
+        public string TableName { get; private set; } = string.Empty;
 
         public Column ColumnInformation { get; private set; }
 
@@ -20,6 +21,14 @@ namespace SchemaBuilder.Core.Implementations.Add
         public void In(string tableName)
         {
             TableName = tableName;
+        }
+
+        public void IsValid()
+        {
+            bool isValid = new Validator<AddColumn>(x => !string.IsNullOrEmpty(x.ColumnName) && !string.IsNullOrEmpty(x.TableName) && x.ColumnName != null)
+                .Validate(this);
+
+            ValidationException.ThrowIfFalse(isValid, "AddColumn");
         }
     }
 }

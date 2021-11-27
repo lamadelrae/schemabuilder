@@ -2,7 +2,7 @@
 {
     public class Column
     {
-        public Dictionary<ColumnProperties, object> Dictionary { get; private set; } = new Dictionary<ColumnProperties, object>();
+        public Dictionary<ColumnProperties, object> Properties { get; private set; } = new Dictionary<ColumnProperties, object>();
 
         public ColumnTypes ColumnType { get; private set; }
 
@@ -27,7 +27,7 @@
             return this;
         }
 
-        public Column String(bool primaryKey = false, bool foreignKey = false, bool nullable = false, string defaultValue = null)
+        public Column String(bool primaryKey = false, bool foreignKey = false, bool nullable = false, string? defaultValue = null)
         {
             ColumnType = ColumnTypes.String;
             AddDefaultProperties(primaryKey, foreignKey, nullable, defaultValue);
@@ -38,17 +38,17 @@
         {
             ColumnType = ColumnTypes.String;
             AddDefaultProperties(primaryKey, foreignKey, nullable, defaultValue);
-            Dictionary.Add(ColumnProperties.Precision, precision);
-            Dictionary.Add(ColumnProperties.Scale, scale);
+            Properties.Add(ColumnProperties.Precision, precision);
+            Properties.Add(ColumnProperties.Scale, scale);
             return this;
         }
 
         private void AddDefaultProperties(bool primaryKey, bool foreignKey, bool nullable, object? defaultValue)
         {
-            Dictionary.Add(ColumnProperties.PrimaryKey, primaryKey);
-            Dictionary.Add(ColumnProperties.ForeignKey, foreignKey);
-            Dictionary.Add(ColumnProperties.Nullable, nullable);
-            Dictionary.Add(ColumnProperties.DefaultValue, defaultValue);
+            Properties.Add(ColumnProperties.PrimaryKey, primaryKey);
+            Properties.Add(ColumnProperties.ForeignKey, foreignKey);
+            Properties.Add(ColumnProperties.Nullable, nullable);
+            Properties.Add(ColumnProperties.DefaultValue, defaultValue ?? new { });
         }
     }
 }

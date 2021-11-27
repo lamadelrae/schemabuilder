@@ -14,7 +14,7 @@ namespace SchemaBuilder.UnitTests
     {
         public SomeScript() : base(id: 1)
         {
-            Add().Column("Name", x => x.String())
+            Add().Column("Name", x => x.String(primaryKey: true))
                 .In("TableName");
 
             Add().Table("TableName")

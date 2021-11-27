@@ -1,4 +1,7 @@
 ﻿namespace SchemaBuilder.Core.Interfaces.Base
 {
-    public interface IOperation { }
+    public interface IOperation
+    {
+        void IsValid();
+    }
 }

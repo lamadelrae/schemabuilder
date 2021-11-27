@@ -1,4 +1,5 @@
 ﻿using SchemaBuilder.Core.Interfaces.Drop;
+using SchemaBuilder.SharedKernel;
 
 namespace SchemaBuilder.Core.Implementations.Drop
 {
@@ -16,6 +17,14 @@ namespace SchemaBuilder.Core.Implementations.Drop
         public void In(string tableName)
         {
             TableName = tableName;
+        }
+
+        public void IsValid()
+        {
+            bool isValid = new Validator<DropColumn>(x => !string.IsNullOrEmpty(x.ColumnName) && !string.IsNullOrEmpty(x.TableName))
+                .Validate(this);
+
+            ValidationException.ThrowIfFalse(isValid, "AddTable");
         }
     }
 }
