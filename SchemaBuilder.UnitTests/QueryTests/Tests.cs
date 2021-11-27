@@ -24,6 +24,10 @@ namespace SchemaBuilder.UnitTests
             Drop().Table("TableName");
             Drop().Column("ColumnName")
                     .In("TableName");
+
+            Rename().Table("TableName").To("SomeTable");
+
+            Rename().Column("SomeColumn").To("AnotherColumn").In("SomeTable");
         }
     }
 }

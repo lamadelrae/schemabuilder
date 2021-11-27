@@ -2,16 +2,16 @@
 
 namespace SchemaBuilder.SharedKernel
 {
-    public class Validator<TOperation> where TOperation : IOperation
+    public class Validator<T>
     {
-        Func<TOperation, bool> Func { get; set; }
+        Func<T, bool> Func { get; set; }
 
-        public Validator(Func<TOperation, bool> func)
+        public Validator(Func<T, bool> func)
         {
             Func = func;
         }
 
-        public bool Validate(TOperation operation)
+        public bool Validate(T operation)
         {
             return Func(operation);
         }
