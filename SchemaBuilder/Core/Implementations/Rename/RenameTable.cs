@@ -1,9 +1,10 @@
-﻿using SchemaBuilder.Core.Interfaces.Rename;
+﻿using SchemaBuilder.Core.Interfaces.Base;
+using SchemaBuilder.Core.Interfaces.Rename;
 using SchemaBuilder.SharedKernel;
 
 namespace SchemaBuilder.Core.Implementations.Rename
 {
-    public class RenameTable : IRenameTable
+    public class RenameTable : IRenameTable, IValidation
     {
         public string FromTable { get; set; } = string.Empty;
 

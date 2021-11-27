@@ -1,10 +1,11 @@
 ﻿using SchemaBuilder.Core.Interfaces.Add;
+using SchemaBuilder.Core.Interfaces.Base;
 using SchemaBuilder.Models;
 using SchemaBuilder.SharedKernel;
 
 namespace SchemaBuilder.Core.Implementations.Add
 {
-    public class AddColumn : IAddColumn
+    public class AddColumn : IAddColumn, IValidation
     {
         public string ColumnName { get; private set; } = string.Empty;
 

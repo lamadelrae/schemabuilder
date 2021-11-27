@@ -1,9 +1,10 @@
-﻿using SchemaBuilder.Core.Interfaces.Drop;
+﻿using SchemaBuilder.Core.Interfaces.Base;
+using SchemaBuilder.Core.Interfaces.Drop;
 using SchemaBuilder.SharedKernel;
 
 namespace SchemaBuilder.Core.Implementations.Drop
 {
-    public class DropColumn : IDropColumn
+    public class DropColumn : IDropColumn, IValidation
     {
         public string? ColumnName { get; private set; }
 

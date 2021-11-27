@@ -1,10 +1,11 @@
 ﻿using SchemaBuilder.Core.Interfaces.Add;
+using SchemaBuilder.Core.Interfaces.Base;
 using SchemaBuilder.Models;
 using SchemaBuilder.SharedKernel;
 
 namespace SchemaBuilder.Core.Implementations.Add
 {
-    public class AddTable : IAddTable
+    public class AddTable : IAddTable, IValidation
     {
         public string TableName { get; private set; }
 
