@@ -1,4 +1,4 @@
-﻿using SchemaBuilder.Core.Implementations;
+﻿using SchemaBuilder.Core.Implementations.Script;
 using SchemaBuilder.Core.Interfaces.DataHolders.Base;
 using SchemaBuilder.Core.Interfaces.DataHolders.Operations.Add;
 using SchemaBuilder.Core.Interfaces.DataHolders.Operations.Drop;

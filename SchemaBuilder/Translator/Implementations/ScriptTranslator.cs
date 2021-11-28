@@ -1,4 +1,4 @@
-﻿using SchemaBuilder.Core.Implementations;
+﻿using SchemaBuilder.Core.Implementations.Script;
 using SchemaBuilder.Core.Interfaces.Validations.Base;
 using SchemaBuilder.Translator.Interfaces.Base;
 
