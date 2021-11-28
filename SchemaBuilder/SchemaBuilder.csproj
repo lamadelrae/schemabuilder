@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Dispatcher\" />
-    <Folder Include="Translator\" />
   </ItemGroup>
 
 </Project>
