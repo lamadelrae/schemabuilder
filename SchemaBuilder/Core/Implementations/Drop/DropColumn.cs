@@ -1,11 +1,11 @@
-﻿using SchemaBuilder.Core.Interfaces.DataHolders.Operations.Drop;
-using SchemaBuilder.Core.Interfaces.Drop;
+﻿using SchemaBuilder.Core.Interfaces.Contracts.Operations.Drop;
+using SchemaBuilder.Core.Interfaces.DataHolders.Operations.Drop;
 using SchemaBuilder.Core.Interfaces.Validations.Base;
 using SchemaBuilder.SharedKernel;
 
 namespace SchemaBuilder.Core.Implementations.Drop
 {
-    public class DropColumn : IDropColumnConrtact, IDropColumnDataHolder, IValidation
+    public class DropColumn : IDropColumnContract, IDropColumnDataHolder, IValidation
     {
         public string ColumnName { get; private set; }
 

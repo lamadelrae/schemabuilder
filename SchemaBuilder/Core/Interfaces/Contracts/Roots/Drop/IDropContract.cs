@@ -1,8 +1,10 @@
-﻿namespace SchemaBuilder.Core.Interfaces.Drop
+﻿using SchemaBuilder.Core.Interfaces.Contracts.Operations.Drop;
+
+namespace SchemaBuilder.Core.Interfaces.Contracts.Roots.Drop
 {
     public interface IDropContract
     {
-        IDropColumnConrtact Column(string columnName);
+        IDropColumnContract Column(string columnName);
 
         IDropTableContract Table(string tableName);
     }

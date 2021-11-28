@@ -14,20 +14,11 @@ namespace SchemaBuilder.UnitTests
     {
         public SomeScript() : base(id: 1)
         {
-            Add().Column("Name", x => x.String(primaryKey: true))
-                .In("TableName");
+            Add().Table("SomeTable")
+                 .Column("Id", x => x.Int())
+                 .Column("Date", x => x.String());
 
-            Add().Table("TableName")
-                 .Column("ColumnName", x => x.Guid())
-                 .Column("ColumnName", x => x.Int());
-
-            Drop().Table("TableName");
-            Drop().Column("ColumnName")
-                    .In("TableName");
-
-            Rename().Table("TableName").To("SomeTable");
-
-            Rename().Column("SomeColumn").To("AnotherColumn").In("SomeTable");
+            Drop().Table("Table");
         }
     }
 }

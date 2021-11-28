@@ -1,5 +1,5 @@
-﻿using SchemaBuilder.Core.Interfaces.DataHolders.Operations.Drop;
-using SchemaBuilder.Core.Interfaces.Drop;
+﻿using SchemaBuilder.Core.Interfaces.Contracts.Operations.Drop;
+using SchemaBuilder.Core.Interfaces.DataHolders.Operations.Drop;
 using SchemaBuilder.Core.Interfaces.Validations.Base;
 using SchemaBuilder.SharedKernel;
 

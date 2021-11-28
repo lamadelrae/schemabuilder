@@ -1,6 +1,7 @@
-﻿using SchemaBuilder.Core.Interfaces.DataHolders.Base;
+﻿using SchemaBuilder.Core.Interfaces.Contracts.Operations.Rename;
+using SchemaBuilder.Core.Interfaces.Contracts.Roots.Rename;
+using SchemaBuilder.Core.Interfaces.DataHolders.Base;
 using SchemaBuilder.Core.Interfaces.DataHolders.Roots;
-using SchemaBuilder.Core.Interfaces.Rename;
 using SchemaBuilder.Core.Interfaces.Validations.Base;
 
 namespace SchemaBuilder.Core.Implementations.Rename

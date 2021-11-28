@@ -1,5 +1,5 @@
-﻿using SchemaBuilder.Core.Interfaces.DataHolders.Operations.Rename;
-using SchemaBuilder.Core.Interfaces.Rename;
+﻿using SchemaBuilder.Core.Interfaces.Contracts.Operations.Rename;
+using SchemaBuilder.Core.Interfaces.DataHolders.Operations.Rename;
 using SchemaBuilder.Core.Interfaces.Validations.Base;
 using SchemaBuilder.SharedKernel;
 

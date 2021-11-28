@@ -1,6 +1,7 @@
-﻿using SchemaBuilder.Core.Interfaces.DataHolders.Base;
+﻿using SchemaBuilder.Core.Interfaces.Contracts.Operations.Drop;
+using SchemaBuilder.Core.Interfaces.Contracts.Roots.Drop;
+using SchemaBuilder.Core.Interfaces.DataHolders.Base;
 using SchemaBuilder.Core.Interfaces.DataHolders.Roots;
-using SchemaBuilder.Core.Interfaces.Drop;
 using SchemaBuilder.Core.Interfaces.Validations.Base;
 
 namespace SchemaBuilder.Core.Implementations.Drop
@@ -9,7 +10,7 @@ namespace SchemaBuilder.Core.Implementations.Drop
     {
         public List<IDataHolder> Children => new List<IDataHolder>();
 
-        public IDropColumnConrtact Column(string columnName)
+        public IDropColumnContract Column(string columnName)
         {
             var dropColumn = new DropColumn(columnName);
             Children.Add(dropColumn);

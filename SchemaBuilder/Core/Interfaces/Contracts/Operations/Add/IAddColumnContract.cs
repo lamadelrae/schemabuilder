@@ -1,4 +1,4 @@
-﻿namespace SchemaBuilder.Core.Interfaces.Add
+﻿namespace SchemaBuilder.Core.Interfaces.Contracts.Operations.Add
 {
     public interface IAddColumnContract
     {

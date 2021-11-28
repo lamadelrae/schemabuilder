@@ -1,4 +1,4 @@
-﻿namespace SchemaBuilder.Core.Interfaces.Rename
+﻿namespace SchemaBuilder.Core.Interfaces.Contracts.Operations.Rename
 {
     public interface IRenameTableContract
     {

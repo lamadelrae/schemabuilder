@@ -1,6 +1,4 @@
-﻿using SchemaBuilder.Core.Interfaces.Base;
-
-namespace SchemaBuilder.SharedKernel
+﻿namespace SchemaBuilder.SharedKernel
 {
     public class Validator<T>
     {

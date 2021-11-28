@@ -1,4 +1,5 @@
-﻿using SchemaBuilder.Core.Interfaces.Add;
+﻿using SchemaBuilder.Core.Interfaces.Contracts.Operations.Add;
+using SchemaBuilder.Core.Interfaces.Contracts.Roots.Add;
 using SchemaBuilder.Core.Interfaces.DataHolders.Base;
 using SchemaBuilder.Core.Interfaces.DataHolders.Roots;
 using SchemaBuilder.Core.Interfaces.Validations.Base;

@@ -1,4 +1,4 @@
-﻿namespace SchemaBuilder.Core.Interfaces.Drop
+﻿namespace SchemaBuilder.Core.Interfaces.Contracts.Operations.Drop
 {
     public interface IDropTableContract { }
 }
