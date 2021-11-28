@@ -30,7 +30,7 @@ namespace SchemaBuilder.Translator.Implementations
                .Select(o => TranslatorFactory.Create(o).Translate())
                .ToList().ForEach(x =>
                {
-                   script += $"{x}\n";
+                   script += $"{x};\n";
                });
 
             return script;

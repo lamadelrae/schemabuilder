@@ -1,10 +1,4 @@
-﻿using SchemaBuilder.Core.Interfaces.DataHolders.Operations.Add;
-using SchemaBuilder.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SchemaBuilder.Models;
 
 namespace SchemaBuilder.Translator.Implementations.Add
 {
