@@ -14,7 +14,7 @@ namespace SchemaBuilder.Translator.Implementations.Add
 
         public string Translate()
         {
-            return "";
+            return $"ALTER TABLE {_dataHolder.TableName} ADD {_dataHolder.ColumnName} {ColumnPropertyHelper.Create(_dataHolder.Column)}";
         }
     }
 }

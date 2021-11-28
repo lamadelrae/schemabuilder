@@ -18,4 +18,11 @@
     <ProjectReference Include="..\SchemaBuilder\SchemaBuilder.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DispatcherTests\" />
+    <Folder Include="ModelsTests\" />
+    <Folder Include="ContractTests\" />
+    <Folder Include="TranslatorTests\" />
+  </ItemGroup>
+
 </Project>

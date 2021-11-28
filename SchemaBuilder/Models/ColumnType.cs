@@ -1,11 +1,12 @@
 ﻿namespace SchemaBuilder.Models
 {
-    public enum ColumnTypes
+    public enum ColumnType
     {
         Int,
         String,
         Bool,
         Guid,
-        Decimal
+        Decimal,
+        DateTime
     }
 }

@@ -1,13 +1,16 @@
 ﻿namespace SchemaBuilder.Models
 {
-    public enum ColumnProperties
+    public enum ColumnProperty
     {
         PrimaryKey,
         ForeignKey,
         DefaultValue,
         Nullable,
         Identity,
+        IdentityStart,
+        IdentityIncrement,
         Precision,
-        Scale
+        Scale,
+        Size
     }
 }
