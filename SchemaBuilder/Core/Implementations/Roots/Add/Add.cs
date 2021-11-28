@@ -1,13 +1,13 @@
-﻿using SchemaBuilder.Core.Interfaces.Contracts.Operations.Add;
+﻿using SchemaBuilder.Core.Implementations.Operations.Add;
+using SchemaBuilder.Core.Interfaces.Contracts.Operations.Add;
 using SchemaBuilder.Core.Interfaces.Contracts.Roots.Add;
 using SchemaBuilder.Core.Interfaces.DataHolders.Base;
 using SchemaBuilder.Core.Interfaces.DataHolders.Roots;
-using SchemaBuilder.Core.Interfaces.Validations.Base;
 using SchemaBuilder.Models;
 
-namespace SchemaBuilder.Core.Implementations.Add
+namespace SchemaBuilder.Core.Implementations.Roots.Add
 {
-    public class Add : IAddContract, IRootDataHolder, IValidation
+    public class Add : IAddContract, IRootDataHolder
     {
         public List<IDataHolder> Children => new List<IDataHolder>();
 
@@ -23,14 +23,6 @@ namespace SchemaBuilder.Core.Implementations.Add
             var addTable = new AddTable(tableName);
             Children.Add(addTable);
             return addTable;
-        }
-
-        public void IsValid()
-        {
-            Children.Select(c => c as IValidation)
-                .Where(v => v is not null)
-                .ToList()
-                .ForEach(v => v!.IsValid());
         }
     }
 }

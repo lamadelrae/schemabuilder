@@ -3,7 +3,7 @@ using SchemaBuilder.Core.Interfaces.DataHolders.Operations.Rename;
 using SchemaBuilder.Core.Interfaces.Validations.Base;
 using SchemaBuilder.SharedKernel;
 
-namespace SchemaBuilder.Core.Implementations.Rename
+namespace SchemaBuilder.Core.Implementations.Operations.Rename
 {
     public class RenameTable : IRenameTableContract, IRenameTableDataHolder, IValidation
     {

@@ -3,7 +3,7 @@ using SchemaBuilder.Core.Interfaces.DataHolders.Operations.Drop;
 using SchemaBuilder.Core.Interfaces.Validations.Base;
 using SchemaBuilder.SharedKernel;
 
-namespace SchemaBuilder.Core.Implementations.Drop
+namespace SchemaBuilder.Core.Implementations.Operations.Drop
 {
     public class DropColumn : IDropColumnContract, IDropColumnDataHolder, IValidation
     {

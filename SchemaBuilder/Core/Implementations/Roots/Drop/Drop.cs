@@ -2,11 +2,11 @@
 using SchemaBuilder.Core.Interfaces.Contracts.Roots.Drop;
 using SchemaBuilder.Core.Interfaces.DataHolders.Base;
 using SchemaBuilder.Core.Interfaces.DataHolders.Roots;
-using SchemaBuilder.Core.Interfaces.Validations.Base;
+using SchemaBuilder.Core.Implementations.Operations.Drop;
 
-namespace SchemaBuilder.Core.Implementations.Drop
+namespace SchemaBuilder.Core.Implementations.Roots.Drop
 {
-    public class Drop : IDropContract, IRootDataHolder, IValidation
+    public class Drop : IDropContract, IRootDataHolder
     {
         public List<IDataHolder> Children => new List<IDataHolder>();
 
@@ -22,14 +22,6 @@ namespace SchemaBuilder.Core.Implementations.Drop
             var dropTable = new DropTable(tableName);
             Children.Add(dropTable);
             return dropTable;
-        }
-
-        public void IsValid()
-        {
-            Children.Select(c => c as IValidation)
-                .Where(v => v is not null)
-                .ToList()
-                .ForEach(v => v!.IsValid());
         }
     }
 }

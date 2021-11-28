@@ -4,7 +4,7 @@ using SchemaBuilder.Core.Interfaces.Validations.Base;
 using SchemaBuilder.Models;
 using SchemaBuilder.SharedKernel;
 
-namespace SchemaBuilder.Core.Implementations.Add
+namespace SchemaBuilder.Core.Implementations.Operations.Add
 {
     public class AddTable : IAddTableContract, IAddTableDataHolder, IValidation
     {

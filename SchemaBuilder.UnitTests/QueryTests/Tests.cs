@@ -1,5 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SchemaBuilder.Core;
+using SchemaBuilder.Core.Implementations;
 
 namespace SchemaBuilder.UnitTests
 {

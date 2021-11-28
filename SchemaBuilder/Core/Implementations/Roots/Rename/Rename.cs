@@ -1,12 +1,12 @@
-﻿using SchemaBuilder.Core.Interfaces.Contracts.Operations.Rename;
+﻿using SchemaBuilder.Core.Implementations.Operations.Rename;
+using SchemaBuilder.Core.Interfaces.Contracts.Operations.Rename;
 using SchemaBuilder.Core.Interfaces.Contracts.Roots.Rename;
 using SchemaBuilder.Core.Interfaces.DataHolders.Base;
 using SchemaBuilder.Core.Interfaces.DataHolders.Roots;
-using SchemaBuilder.Core.Interfaces.Validations.Base;
 
-namespace SchemaBuilder.Core.Implementations.Rename
+namespace SchemaBuilder.Core.Implementations.Roots.Rename
 {
-    public class Rename : IRenameContract, IRootDataHolder, IValidation
+    public class Rename : IRenameContract, IRootDataHolder
     {
         public List<IDataHolder> Children => new List<IDataHolder>();
 
@@ -17,20 +17,11 @@ namespace SchemaBuilder.Core.Implementations.Rename
             return renameColumn;
         }
 
-
         public IRenameTableContract Table(string tableName)
         {
             RenameTable renameTable = new RenameTable(tableName);
             Children.Add(renameTable);
             return renameTable;
-        }
-
-        public void IsValid()
-        {
-            Children.Select(c => c as IValidation)
-                .Where(v => v is not null)
-                .ToList()
-                .ForEach(v => v!.IsValid());
         }
     }
 }

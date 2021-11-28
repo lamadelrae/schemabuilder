@@ -1,4 +1,5 @@
-﻿using SchemaBuilder.Core.Interfaces.DataHolders.Base;
+﻿using SchemaBuilder.Core.Implementations;
+using SchemaBuilder.Core.Interfaces.DataHolders.Base;
 using SchemaBuilder.Core.Interfaces.DataHolders.Operations.Add;
 using SchemaBuilder.Core.Interfaces.DataHolders.Operations.Drop;
 using SchemaBuilder.Core.Interfaces.DataHolders.Operations.Rename;
@@ -11,6 +12,9 @@ namespace SchemaBuilder.Translator.Implementations
 {
     public static class TranslatorFactory
     {
+        public static ITranslator Create(Script script)
+            => new ScriptTranslator(script);
+
         public static ITranslator Create(IDataHolder dataHolder)
         {
             return dataHolder switch

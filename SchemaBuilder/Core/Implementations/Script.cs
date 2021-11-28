@@ -1,12 +1,12 @@
-﻿using SchemaBuilder.Core.Implementations.Add;
-using SchemaBuilder.Core.Implementations.Drop;
-using SchemaBuilder.Core.Implementations.Rename;
+﻿using SchemaBuilder.Core.Implementations.Rename;
+using SchemaBuilder.Core.Implementations.Roots.Add;
+using SchemaBuilder.Core.Implementations.Roots.Drop;
 using SchemaBuilder.Core.Interfaces.Contracts.Roots.Add;
 using SchemaBuilder.Core.Interfaces.Contracts.Roots.Drop;
 using SchemaBuilder.Core.Interfaces.Contracts.Roots.Rename;
 using SchemaBuilder.Core.Interfaces.DataHolders.Roots;
 
-namespace SchemaBuilder.Core
+namespace SchemaBuilder.Core.Implementations
 {
     public abstract class Script
     {
