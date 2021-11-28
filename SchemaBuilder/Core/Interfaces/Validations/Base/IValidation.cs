@@ -1,4 +1,4 @@
-﻿namespace SchemaBuilder.Core.Interfaces.Base
+﻿namespace SchemaBuilder.Core.Interfaces.Validations.Base
 {
     public interface IValidation
     {

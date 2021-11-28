@@ -1,11 +1,12 @@
 ﻿using SchemaBuilder.Core.Interfaces.Add;
-using SchemaBuilder.Core.Interfaces.Base;
+using SchemaBuilder.Core.Interfaces.DataHolders.Operations.Add;
+using SchemaBuilder.Core.Interfaces.Validations.Base;
 using SchemaBuilder.Models;
 using SchemaBuilder.SharedKernel;
 
 namespace SchemaBuilder.Core.Implementations.Add
 {
-    public class AddTable : IAddTable, IValidation
+    public class AddTable : IAddTableContract, IAddTableDataHolder, IValidation
     {
         public string TableName { get; private set; }
 
@@ -16,7 +17,7 @@ namespace SchemaBuilder.Core.Implementations.Add
             TableName = tableName;
         }
 
-        public IAddTable Column(string columnName, Func<Column, Column> func)
+        public IAddTableContract Column(string columnName, Func<Column, Column> func)
         {
             Columns.Add(columnName, func(new Column()));
             return this;

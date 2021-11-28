@@ -1,14 +1,15 @@
-﻿using SchemaBuilder.Core.Interfaces.Base;
+﻿using SchemaBuilder.Core.Interfaces.DataHolders.Operations.Rename;
 using SchemaBuilder.Core.Interfaces.Rename;
+using SchemaBuilder.Core.Interfaces.Validations.Base;
 using SchemaBuilder.SharedKernel;
 
 namespace SchemaBuilder.Core.Implementations.Rename
 {
-    public class RenameTable : IRenameTable, IValidation
+    public class RenameTable : IRenameTableContract, IRenameTableDataHolder, IValidation
     {
-        public string FromTable { get; set; } = string.Empty;
+        public string FromTable { get; private set; } = string.Empty;
 
-        public string ToTable { get; set; } = string.Empty;
+        public string ToTable { get; private set; } = string.Empty;
 
         public RenameTable(string fromTable)
         {

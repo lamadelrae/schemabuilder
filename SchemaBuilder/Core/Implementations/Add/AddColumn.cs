@@ -1,21 +1,22 @@
 ﻿using SchemaBuilder.Core.Interfaces.Add;
-using SchemaBuilder.Core.Interfaces.Base;
+using SchemaBuilder.Core.Interfaces.DataHolders.Operations.Add;
+using SchemaBuilder.Core.Interfaces.Validations.Base;
 using SchemaBuilder.Models;
 using SchemaBuilder.SharedKernel;
 
 namespace SchemaBuilder.Core.Implementations.Add
 {
-    public class AddColumn : IAddColumn, IValidation
+    public class AddColumn : IAddColumnContract, IAddColumnDataHolder, IValidation
     {
         public string ColumnName { get; private set; } = string.Empty;
 
         public string TableName { get; private set; } = string.Empty;
 
-        public Column ColumnInformation { get; private set; }
+        public Column Column { get; private set; }
 
         public AddColumn(string columnName, Func<Column, Column> func)
         {
-            ColumnInformation = func(new Column());
+            Column = func(new Column());
             ColumnName = columnName;
         }
 

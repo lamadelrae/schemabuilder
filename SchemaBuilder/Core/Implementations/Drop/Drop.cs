@@ -1,24 +1,34 @@
-﻿using SchemaBuilder.Core.Interfaces.Base;
+﻿using SchemaBuilder.Core.Interfaces.DataHolders.Base;
+using SchemaBuilder.Core.Interfaces.DataHolders.Roots;
 using SchemaBuilder.Core.Interfaces.Drop;
+using SchemaBuilder.Core.Interfaces.Validations.Base;
 
 namespace SchemaBuilder.Core.Implementations.Drop
 {
-    public class Drop : IDrop
+    public class Drop : IDropContract, IRootDataHolder, IValidation
     {
-        public List<IOperation> Operations => new List<IOperation>();
+        public List<IDataHolder> Children => new List<IDataHolder>();
 
-        public IDropColumn Column(string columnName)
+        public IDropColumnConrtact Column(string columnName)
         {
             var dropColumn = new DropColumn(columnName);
-            Operations.Add(dropColumn);
+            Children.Add(dropColumn);
             return dropColumn;
         }
 
-        public IDropTable Table(string tableName)
+        public IDropTableContract Table(string tableName)
         {
             var dropTable = new DropTable(tableName);
-            Operations.Add(dropTable);
+            Children.Add(dropTable);
             return dropTable;
+        }
+
+        public void IsValid()
+        {
+            Children.Select(c => c as IValidation)
+                .Where(v => v is not null)
+                .ToList()
+                .ForEach(v => v!.IsValid());
         }
     }
 }

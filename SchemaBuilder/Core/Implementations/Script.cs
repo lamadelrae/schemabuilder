@@ -19,21 +19,21 @@ namespace SchemaBuilder.Core
             Id = id;
         }
 
-        public IAdd Add()
+        public IAddContract Add()
         {
             Add add = new Add();
             Roots.Add(add);
             return add;
         }
 
-        public IDrop Drop()
+        public IDropContract Drop()
         {
             Drop drop = new Drop();
             Roots.Add(drop);
             return drop;
         }
 
-        public IRename Rename()
+        public IRenameContract Rename()
         {
             Rename rename = new Rename();
             Roots.Add(rename);
