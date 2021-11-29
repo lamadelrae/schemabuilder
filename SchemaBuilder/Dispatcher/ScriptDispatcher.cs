@@ -1,4 +1,5 @@
-﻿using SchemaBuilder.Core.Implementations.Script;
+﻿using Dapper;
+using SchemaBuilder.Core.Implementations.Script;
 using SchemaBuilder.Models;
 using SchemaBuilder.Translator.Implementations;
 using System.Data.SqlClient;
@@ -7,9 +8,9 @@ namespace SchemaBuilder.Dispatcher
 {
     public class ScriptDispatcher
     {
-        SqlConnection _connection;
+        private readonly SqlConnection _connection;
 
-        private HistoryManager _historyManager;
+        private readonly HistoryManager _historyManager;
 
         public ScriptDispatcher(SqlConnection connection)
         {
@@ -19,19 +20,15 @@ namespace SchemaBuilder.Dispatcher
 
         public void DispatchAll(IEnumerable<Script> scripts)
         {
-            IEnumerable<History> histories = _historyManager.GetHistory();
-            IEnumerable<Script> scriptsNotRun = scripts.Where(s => !histories.Any(h => h.ScriptId == s.Id));
+            IEnumerable<int> scriptsRun = _historyManager.GetHistory().Select(x => x.ScriptId);
+            IEnumerable<Script> scriptsNotRun = scripts.Where(x => !scriptsRun.Contains(x.Id));
             scriptsNotRun.ToList().ForEach(s => DispatchOne(s));
         }
 
         private void DispatchOne(Script script)
         {
             string sqlScript = TranslatorFactory.Create(script).Translate();
-            _connection.Open();
-            SqlCommand command = new SqlCommand(sqlScript, _connection);
-            command.ExecuteNonQuery();
-            _connection.Close();
-
+            _connection.Execute(sqlScript);
             _historyManager.InsertHistory(new History(Guid.NewGuid(), script.Id, sqlScript, DateTime.Now));
         }
     }

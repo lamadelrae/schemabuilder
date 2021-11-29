@@ -6,17 +6,17 @@ namespace SchemaBuilder.Translator.Implementations
 {
     public class ScriptTranslator : ITranslator
     {
-        Script Script { get; set; }
+        private readonly Script _script;
 
         public ScriptTranslator(Script script)
         {
-            Script = script;
+            _script = script;
             Validate();
         }
 
         private void Validate()
         {
-            Script.Roots
+            _script.Roots
                 .SelectMany(l => l.Children)
                 .Select(d => d as IValidation)
                 .Where(v => v != null).ToList()
@@ -26,7 +26,7 @@ namespace SchemaBuilder.Translator.Implementations
         public string Translate()
         {
             string script = string.Empty;
-            Script.Roots.SelectMany(l => l.Children)
+            _script.Roots.SelectMany(l => l.Children)
                .Select(o => TranslatorFactory.Create(o).Translate())
                .ToList().ForEach(x =>
                {

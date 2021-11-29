@@ -21,9 +21,10 @@ namespace SchemaBuilder
         public static void UseSchemaBuilder(SqlConnection connection)
         {
             ScriptDispatcher dispatcher = new ScriptDispatcher(connection);
-            List<Script> scripts = AppDomain.CurrentDomain
+            IEnumerable<Script> scripts = AppDomain.CurrentDomain
                 .GetAssemblies().SelectMany(x => x.GetTypes())
-                .OfType<Script>().ToList();
+                .Where(x => x.BaseType == typeof(Script))
+                .Select(x => (Script)Activator.CreateInstance(x)!);
 
             dispatcher.DispatchAll(scripts);
         }

@@ -1,4 +1,5 @@
-﻿using SchemaBuilder.Models;
+﻿using Dapper;
+using SchemaBuilder.Models;
 using System.Data.SqlClient;
 
 namespace SchemaBuilder.Dispatcher
@@ -15,48 +16,11 @@ namespace SchemaBuilder.Dispatcher
                 CreateTable();
         }
 
-        public void InsertHistory(History history)
-        {
-            string sql = "INSERT INTO SchemaBuilderHistory VALUES (@id, @scriptId, @script, @dateCreated)";
-
-            _connection.Open();
-            SqlCommand cmd = _connection.CreateCommand();
-            cmd.CommandText = sql;
-            cmd.Parameters.Add(new SqlParameter("@id", history.Id));
-            cmd.Parameters.Add(new SqlParameter("@scriptId", history.ScriptId));
-            cmd.Parameters.Add(new SqlParameter("@script", history.Script));
-            cmd.Parameters.Add(new SqlParameter("@dateCreated", history.DateCreated));
-            cmd.ExecuteNonQuery();
-            _connection.Close();
-        }
-
-        public IEnumerable<History> GetHistory()
-        {
-            string sql = "SELECT * FROM SchemaBuilderHistory";
-
-            _connection.Open();
-            SqlCommand cmd = _connection.CreateCommand();
-            cmd.CommandText = sql;
-            
-            SqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
-                yield return new History((Guid)reader[0], (int)reader[1], (string)reader[2], (DateTime)reader[3]);
-
-            _connection.Close();
-        }
-
         private bool TableExists()
         {
-            _connection.Open();
+            string sql = @"SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'SchemaBuilderHistory'";
 
-            SqlCommand cmd = _connection.CreateCommand();
-            cmd.CommandText = @"SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'SchemaBuilderHistory'";
-
-            SqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
-                return (bool)reader[0];
-
-            return false;
+            return _connection.QueryFirst<bool>(sql);
         }
 
         private void CreateTable()
@@ -69,11 +33,21 @@ namespace SchemaBuilder.Dispatcher
                            	    DateCreated DATETIME DEFAULT GETDATE()
                            )";
 
-            _connection.Open();
-            SqlCommand cmd = _connection.CreateCommand();
-            cmd.CommandText = sql;
-            cmd.ExecuteNonQuery();
-            _connection.Close();
+            _connection.Execute(sql);
+        }
+
+        public void InsertHistory(History history)
+        {
+            string sql = "INSERT INTO SchemaBuilderHistory VALUES (@Id, @ScriptId, @Script, @DateCreated)";
+
+            _connection.Execute(sql, history);
+        }
+
+        public IEnumerable<History> GetHistory()
+        {
+            string sql = "SELECT * FROM SchemaBuilderHistory";
+
+            return _connection.Query<History>(sql);
         }
     }
 }
