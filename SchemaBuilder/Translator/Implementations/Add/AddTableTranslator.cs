@@ -12,7 +12,7 @@ namespace SchemaBuilder.Translator.Implementations.Add
 
         public string Translate()
         {
-            string sql = $"CRATE TABLE {_dataHolder.TableName}";
+            string sql = $"CREATE TABLE {_dataHolder.TableName}";
             sql += "(";
             sql += string.Join(", ", _dataHolder.Columns.Select((column) => $"{column.Key} {ColumnPropertyHelper.Create(column.Value)}"));
             sql += ")";

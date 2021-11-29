@@ -12,7 +12,7 @@ namespace SchemaBuilder.Translator.Implementations.Rename
 
         public string Translate()
         {
-            return $"EXEC SP_RENAME '{_dataHolder.TableName}.{_dataHolder.FromColumn}', '{_dataHolder.ToColumn}'";
+            return $"EXEC SP_RENAME '{_dataHolder.TableName}.{_dataHolder.FromColumn}', '{_dataHolder.ToColumn}', 'COLUMN'";
         }
     }
 }

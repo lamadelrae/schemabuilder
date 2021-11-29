@@ -34,7 +34,7 @@
             return this;
         }
 
-        public Column String(string size, bool primaryKey = false, bool foreignKey = false, bool nullable = false, string? defaultValue = null)
+        public Column String(int size, bool primaryKey = false, bool foreignKey = false, bool nullable = false, string? defaultValue = null)
         {
             ColumnType = ColumnType.String;
             AddDefaultProperties(primaryKey, foreignKey, nullable, defaultValue);

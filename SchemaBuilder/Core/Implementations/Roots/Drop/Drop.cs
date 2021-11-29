@@ -8,7 +8,7 @@ namespace SchemaBuilder.Core.Implementations.Roots.Drop
 {
     public class Drop : IDropContract, IRootDataHolder
     {
-        public List<IDataHolder> Children => new List<IDataHolder>();
+        public List<IDataHolder> Children { get; private set; } = new List<IDataHolder>();
 
         public IDropColumnContract Column(string columnName)
         {

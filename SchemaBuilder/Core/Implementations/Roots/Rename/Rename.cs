@@ -8,7 +8,7 @@ namespace SchemaBuilder.Core.Implementations.Roots.Rename
 {
     public class Rename : IRenameContract, IRootDataHolder
     {
-        public List<IDataHolder> Children => new List<IDataHolder>();
+        public List<IDataHolder> Children { get; private set; } = new List<IDataHolder>();
 
         public IRenameColumnContract Column(string columnName)
         {

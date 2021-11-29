@@ -9,7 +9,7 @@ namespace SchemaBuilder.Core.Implementations.Roots.Add
 {
     public class Add : IAddContract, IRootDataHolder
     {
-        public List<IDataHolder> Children => new List<IDataHolder>();
+        public List<IDataHolder> Children { get; private set; } = new List<IDataHolder>();
 
         public IAddColumnContract Column(string columnName, Func<Column, Column> func)
         {

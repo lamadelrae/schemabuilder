@@ -12,7 +12,7 @@ namespace SchemaBuilder.Core.Implementations.Script
     {
         internal int Id { get; private set; }
 
-        internal List<IRootDataHolder> Roots => new List<IRootDataHolder>();
+        internal List<IRootDataHolder> Roots { get; private set; } = new List<IRootDataHolder>();
 
         public Script(int id)
         {
