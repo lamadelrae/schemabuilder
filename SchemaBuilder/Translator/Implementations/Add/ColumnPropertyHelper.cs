@@ -17,6 +17,7 @@ namespace SchemaBuilder.Translator.Implementations.Add
                 column += "PRIMARY KEY";
                 column += " ";
             }
+
             if (!(bool)properties[ColumnProperty.Nullable])
             {
                 column += "NOT NULL";

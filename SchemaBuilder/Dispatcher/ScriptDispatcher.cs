@@ -5,25 +5,16 @@ using System.Data.SqlClient;
 
 namespace SchemaBuilder.Dispatcher
 {
-    public class ScriptDispatcher
+    public static class ScriptDispatcher
     {
-        SqlConnection _connection;
-
-        ITranslator _translator;
-
-        public ScriptDispatcher(SqlConnection connection, Script script)
+        public static void Dispatch(SqlConnection connection, Script script)
         {
-            _connection = connection;
-            _translator = TranslatorFactory.Create(script);
-        }
+            ITranslator translator = TranslatorFactory.Create(script);
 
-        public void Dispatch()
-        {
-            using (var connection = _connection)
-            {
-                SqlCommand command = new SqlCommand(_translator.Translate(), connection);
-                command.ExecuteNonQuery();
-            }
+            connection.Open();
+            SqlCommand command = new SqlCommand(translator.Translate(), connection);
+            command.ExecuteNonQuery();
+            connection.Close();
         }
     }
 }
