@@ -1,21 +1,7 @@
 ﻿using SchemaBuilder.Core.Implementations.Script;
-using System.Collections.Generic;
 
 namespace SchemaBuilder.Tests.Unit.SharedKernel
 {
-    public class ScriptMock
-    {
-        public List<Script> Scripts { get; set; } = new List<Script>();
-
-        public ScriptMock()
-        {
-            Scripts.Add(new CreateTablesMock());
-            Scripts.Add(new CreateColumnMock());
-            Scripts.Add(new DropTableMock());
-            Scripts.Add(new DropColumnMock());
-        }
-    }
-
     public class CreateTablesMock : Script
     {
         public CreateTablesMock() : base(id: 1)

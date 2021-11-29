@@ -2,7 +2,7 @@
 using SchemaBuilder.Dispatcher;
 using System.Data.SqlClient;
 
-namespace SchemaBuilder.IoC
+namespace SchemaBuilder
 {
     public static class SchemaBuilder
     {
@@ -12,7 +12,7 @@ namespace SchemaBuilder.IoC
         /// <param name="connection"></param>
         /// <param name="scripts"></param>
         public static void UseSchemaBuilder(SqlConnection connection, IEnumerable<Script> scripts)
-            => scripts.ToList().ForEach(script => ScriptDispatcher.Dispatch(connection, script));
+            => new ScriptDispatcher(connection).DispatchAll(scripts);
 
         /// <summary>
         /// /// Specify the connection and this method runs SchemaBuilder.
@@ -20,11 +20,12 @@ namespace SchemaBuilder.IoC
         /// <param name="connection"></param>
         public static void UseSchemaBuilder(SqlConnection connection)
         {
+            ScriptDispatcher dispatcher = new ScriptDispatcher(connection);
             List<Script> scripts = AppDomain.CurrentDomain
                 .GetAssemblies().SelectMany(x => x.GetTypes())
                 .OfType<Script>().ToList();
 
-            scripts.ForEach(script => ScriptDispatcher.Dispatch(connection, script));
+            dispatcher.DispatchAll(scripts);
         }
     }
 }

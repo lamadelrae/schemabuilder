@@ -1,20 +1,38 @@
 ﻿using SchemaBuilder.Core.Implementations.Script;
+using SchemaBuilder.Models;
 using SchemaBuilder.Translator.Implementations;
-using SchemaBuilder.Translator.Interfaces.Base;
 using System.Data.SqlClient;
 
 namespace SchemaBuilder.Dispatcher
 {
-    public static class ScriptDispatcher
+    public class ScriptDispatcher
     {
-        public static void Dispatch(SqlConnection connection, Script script)
-        {
-            ITranslator translator = TranslatorFactory.Create(script);
+        SqlConnection _connection;
 
-            connection.Open();
-            SqlCommand command = new SqlCommand(translator.Translate(), connection);
+        private HistoryManager _historyManager;
+
+        public ScriptDispatcher(SqlConnection connection)
+        {
+            _connection = connection;
+            _historyManager = new HistoryManager(connection);
+        }
+
+        public void DispatchAll(IEnumerable<Script> scripts)
+        {
+            IEnumerable<History> histories = _historyManager.GetHistory();
+            IEnumerable<Script> scriptsNotRun = scripts.Where(s => !histories.Any(h => h.ScriptId == s.Id));
+            scriptsNotRun.ToList().ForEach(s => DispatchOne(s));
+        }
+
+        private void DispatchOne(Script script)
+        {
+            string sqlScript = TranslatorFactory.Create(script).Translate();
+            _connection.Open();
+            SqlCommand command = new SqlCommand(sqlScript, _connection);
             command.ExecuteNonQuery();
-            connection.Close();
+            _connection.Close();
+
+            _historyManager.InsertHistory(new History(Guid.NewGuid(), script.Id, sqlScript, DateTime.Now));
         }
     }
 }
