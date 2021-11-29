@@ -1,7 +1,7 @@
 ﻿using SchemaBuilder.Core.Implementations.Script;
 using System.Collections.Generic;
 
-namespace SchemaBuilder.UnitTests.SharedKernel
+namespace SchemaBuilder.Tests.Unit.SharedKernel
 {
     public class ScriptMock
     {

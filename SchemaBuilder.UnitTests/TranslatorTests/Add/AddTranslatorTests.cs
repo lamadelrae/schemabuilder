@@ -1,8 +1,8 @@
-﻿using SchemaBuilder.Translator.Implementations;
-using SchemaBuilder.UnitTests.SharedKernel;
+﻿using SchemaBuilder.Tests.Unit.SharedKernel;
+using SchemaBuilder.Translator.Implementations;
 using Xunit;
 
-namespace SchemaBuilder.UnitTests.TranslatorTests.Add
+namespace SchemaBuilder.Tests.Unit.TranslatorTests.Add
 {
     public class AddTranslatorTests
     {

@@ -1,7 +1,7 @@
 ﻿using SchemaBuilder.SharedKernel;
 using Xunit;
 
-namespace SchemaBuilder.UnitTests.SharedKernelTests
+namespace SchemaBuilder.Tests.Unit.SharedKernelTests
 {
     public class ValidatorTests
     {

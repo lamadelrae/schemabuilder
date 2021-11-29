@@ -1,13 +1,8 @@
-﻿using SchemaBuilder.Translator.Implementations;
-using SchemaBuilder.UnitTests.SharedKernel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SchemaBuilder.Tests.Unit.SharedKernel;
+using SchemaBuilder.Translator.Implementations;
 using Xunit;
 
-namespace SchemaBuilder.UnitTests.TranslatorTests.Rename
+namespace SchemaBuilder.Tests.Unit.TranslatorTests.Rename
 {
     public class RenameTests
     {
