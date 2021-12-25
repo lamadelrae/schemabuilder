@@ -14,7 +14,7 @@ namespace SchemaBuilder.Tests.Unit.TranslatorTests.Add
 
             //Assertions
             Assert.NotNull(script);
-            Assert.Equal("CREATE TABLE Customer(Id INT PRIMARY KEY NOT NULL IDENTITY(1, 1), Name VARCHAR(120) NOT NULL);\n", script);
+            Assert.Equal("CREATE TABLE Customer (Id INT PRIMARY KEY NOT NULL IDENTITY(1, 1), Name VARCHAR(120) NOT NULL);\n", script);
         }
 
         [Fact]
