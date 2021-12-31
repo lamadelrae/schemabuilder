@@ -1,26 +1,26 @@
 ﻿namespace SchemaBuilder.Models
 {
-    public class Column
+    public class ColumnInfo
     {
         public Dictionary<ColumnProperty, object> Properties { get; private set; } = new Dictionary<ColumnProperty, object>();
 
         public ColumnType ColumnType { get; private set; }
 
-        public Column Guid(bool primaryKey = false, bool foreignKey = false, bool nullable = false, Guid? defaultValue = null)
+        public ColumnInfo Guid(bool primaryKey = false, bool foreignKey = false, bool nullable = false, Guid? defaultValue = null)
         {
             ColumnType = ColumnType.Guid;
             AddDefaultProperties(primaryKey, foreignKey, nullable, defaultValue);
             return this;
         }
 
-        public Column Bool(bool primaryKey = false, bool foreignKey = false, bool nullable = false, bool? defaultValue = null)
+        public ColumnInfo Bool(bool primaryKey = false, bool foreignKey = false, bool nullable = false, bool? defaultValue = null)
         {
             ColumnType = ColumnType.Bool;
             AddDefaultProperties(primaryKey, foreignKey, nullable, defaultValue);
             return this;
         }
 
-        public Column Int(Func<ColumnIdentity, ColumnIdentity>? func = null, bool primaryKey = false, bool foreignKey = false, bool nullable = false, int? defaultValue = null)
+        public ColumnInfo Int(Func<ColumnIdentity, ColumnIdentity>? func = null, bool primaryKey = false, bool foreignKey = false, bool nullable = false, int? defaultValue = null)
         {
             ColumnType = ColumnType.Int;
             AddDefaultProperties(primaryKey, foreignKey, nullable, defaultValue);
@@ -34,7 +34,7 @@
             return this;
         }
 
-        public Column String(int size, bool primaryKey = false, bool foreignKey = false, bool nullable = false, string? defaultValue = null)
+        public ColumnInfo String(int size, bool primaryKey = false, bool foreignKey = false, bool nullable = false, string? defaultValue = null)
         {
             ColumnType = ColumnType.String;
             AddDefaultProperties(primaryKey, foreignKey, nullable, defaultValue);
@@ -42,7 +42,7 @@
             return this;
         }
 
-        public Column Decimal(int precision, int scale, bool primaryKey = false, bool foreignKey = false, bool nullable = false, decimal? defaultValue = null)
+        public ColumnInfo Decimal(int precision, int scale, bool primaryKey = false, bool foreignKey = false, bool nullable = false, decimal? defaultValue = null)
         {
             ColumnType = ColumnType.String;
             AddDefaultProperties(primaryKey, foreignKey, nullable, defaultValue);
@@ -51,7 +51,7 @@
             return this;
         }
 
-        public Column DateTime(bool primaryKey = false, bool foreignKey = false, bool nullable = false, DateTime? defaultValue = null)
+        public ColumnInfo DateTime(bool primaryKey = false, bool foreignKey = false, bool nullable = false, DateTime? defaultValue = null)
         {
             ColumnType = ColumnType.DateTime;
             AddDefaultProperties(primaryKey, foreignKey, nullable, defaultValue);

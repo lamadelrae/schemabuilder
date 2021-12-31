@@ -20,7 +20,7 @@ namespace SchemaBuilder.Dispatcher
         {
             string sql = @"SELECT 1 FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'SchemaBuilderHistory'";
 
-            return _connection.QueryFirst<bool>(sql);
+            return _connection.QueryFirstOrDefault<bool>(sql);
         }
 
         private void CreateTable()

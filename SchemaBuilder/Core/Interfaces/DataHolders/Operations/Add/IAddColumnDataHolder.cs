@@ -9,6 +9,6 @@ namespace SchemaBuilder.Core.Interfaces.DataHolders.Operations.Add
 
         string TableName { get; }
 
-        public Column Column { get; }
+        public ColumnInfo ColumnInfo { get; }
     }
 }

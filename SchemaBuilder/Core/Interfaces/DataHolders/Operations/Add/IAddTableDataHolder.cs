@@ -7,6 +7,6 @@ namespace SchemaBuilder.Core.Interfaces.DataHolders.Operations.Add
     {
         public string TableName { get; }
 
-        public Dictionary<string, Column> Columns { get; }
+        public Dictionary<string, ColumnInfo> Columns { get; }
     }
 }

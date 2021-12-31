@@ -5,7 +5,7 @@ namespace SchemaBuilder.Core.Interfaces.Contracts.Roots.Add
 {
     public interface IAddContract
     {
-        IAddColumnContract Column(string columnName, Func<Column, Column> func);
+        IAddColumnContract Column(string columnName, Func<ColumnInfo, ColumnInfo> func);
 
         IAddTableContract Table(string tableName);
     }

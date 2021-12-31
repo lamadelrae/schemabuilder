@@ -11,7 +11,7 @@ namespace SchemaBuilder.Core.Implementations.Roots.Add
     {
         public List<IDataHolder> Children { get; private set; } = new List<IDataHolder>();
 
-        public IAddColumnContract Column(string columnName, Func<Column, Column> func)
+        public IAddColumnContract Column(string columnName, Func<ColumnInfo, ColumnInfo> func)
         {
             var addColumn = new AddColumn(columnName, func);
             Children.Add(addColumn);

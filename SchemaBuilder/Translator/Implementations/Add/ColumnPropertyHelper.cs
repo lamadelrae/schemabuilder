@@ -4,7 +4,7 @@ namespace SchemaBuilder.Translator.Implementations.Add
 {
     public static class ColumnPropertyHelper
     {
-        public static string Create(Column columnInfo)
+        public static string Create(ColumnInfo columnInfo)
         {
             var properties = columnInfo.Properties;
 
@@ -36,14 +36,14 @@ namespace SchemaBuilder.Translator.Implementations.Add
             return column.Trim();
         }
 
-        private static string GetColumnType(Column columnInfo)
+        private static string GetColumnType(ColumnInfo columnInfo)
         {
             var properties = columnInfo.Properties;
             return columnInfo.ColumnType switch
             {
                 ColumnType.String => $"VARCHAR({properties[ColumnProperty.Size]})",
                 ColumnType.Decimal => $"DECIMAL({properties[ColumnProperty.Scale]}, {properties[ColumnProperty.Precision]})",
-                ColumnType.Bool => $"BIT",
+                ColumnType.Bool => "BIT",
                 ColumnType.Guid => "UNIQUEIDENTIFIER",
                 ColumnType.DateTime => "DATETIME",
                 ColumnType.Int => "INT",

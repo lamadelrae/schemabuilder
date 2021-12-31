@@ -1,8 +1,8 @@
-﻿using SchemaBuilder.Tests.Unit.SharedKernel;
+﻿using SchemaBuilder.Tests.SharedKernel;
 using SchemaBuilder.Translator.Implementations;
 using Xunit;
 
-namespace SchemaBuilder.Tests.Unit.TranslatorTests.Drop
+namespace SchemaBuilder.Tests.Unit.Translator.Drop
 {
     public class DropTranslatorTests
     {
@@ -10,7 +10,7 @@ namespace SchemaBuilder.Tests.Unit.TranslatorTests.Drop
         public void ShouldDropTable()
         {
             //Execution
-            string script = new ScriptTranslator(new DropTableMock()).Translate();
+            string script = new ScriptTranslator(new ScriptMockForUnit.DropTableMock()).Translate();
 
             //Assertions
             Assert.NotNull(script);
@@ -21,11 +21,11 @@ namespace SchemaBuilder.Tests.Unit.TranslatorTests.Drop
         public void ShouldDropColumn()
         {
             //Execution
-            string script = new ScriptTranslator(new DropColumnMock()).Translate();
+            string script = new ScriptTranslator(new ScriptMockForUnit.DropColumnMock()).Translate();
 
             //Assertions
             Assert.NotNull(script);
-            Assert.Equal("ALTER TABLE Customer DROP Id;\n", script);
+            Assert.Equal("ALTER TABLE Customer DROP COLUMN Id;\n", script);
         }
     }
 }

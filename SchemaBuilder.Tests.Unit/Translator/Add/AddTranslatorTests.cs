@@ -1,8 +1,8 @@
-﻿using SchemaBuilder.Tests.Unit.SharedKernel;
+﻿using SchemaBuilder.Tests.SharedKernel;
 using SchemaBuilder.Translator.Implementations;
 using Xunit;
 
-namespace SchemaBuilder.Tests.Unit.TranslatorTests.Add
+namespace SchemaBuilder.Tests.Unit.Translator.Add
 {
     public class AddTranslatorTests
     {
@@ -10,7 +10,7 @@ namespace SchemaBuilder.Tests.Unit.TranslatorTests.Add
         public void ShouldCreateTable()
         {
             //Execution
-            string script = new ScriptTranslator(new CreateTablesMock()).Translate();
+            string script = new ScriptTranslator(new ScriptMockForUnit.CreateTablesMock()).Translate();
 
             //Assertions
             Assert.NotNull(script);
@@ -21,7 +21,7 @@ namespace SchemaBuilder.Tests.Unit.TranslatorTests.Add
         public void ShouldCreateColumn()
         {
             //Execution
-            string script = new ScriptTranslator(new CreateColumnMock()).Translate();
+            string script = new ScriptTranslator(new ScriptMockForUnit.CreateColumnMock()).Translate();
 
             //Assertions
             Assert.NotNull(script);

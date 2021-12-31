@@ -1,8 +1,8 @@
-﻿using SchemaBuilder.Tests.Unit.SharedKernel;
+﻿using SchemaBuilder.Tests.SharedKernel;
 using SchemaBuilder.Translator.Implementations;
 using Xunit;
 
-namespace SchemaBuilder.Tests.Unit.TranslatorTests.Rename
+namespace SchemaBuilder.Tests.Unit.Translator.Rename
 {
     public class RenameTests
     {
@@ -10,7 +10,7 @@ namespace SchemaBuilder.Tests.Unit.TranslatorTests.Rename
         public void ShouldRenameTable()
         {
             //Execution 
-            string script = new ScriptTranslator(new RenameTableMock()).Translate();
+            string script = new ScriptTranslator(new ScriptMockForUnit.RenameTableMock()).Translate();
 
             //Assertions
             Assert.NotNull(script);
@@ -21,7 +21,7 @@ namespace SchemaBuilder.Tests.Unit.TranslatorTests.Rename
         public void ShouldRenameColumn()
         {
             //Execution 
-            string script = new ScriptTranslator(new RenameColumnMock()).Translate();
+            string script = new ScriptTranslator(new ScriptMockForUnit.RenameColumnMock()).Translate();
 
             //Assertions
             Assert.NotNull(script);

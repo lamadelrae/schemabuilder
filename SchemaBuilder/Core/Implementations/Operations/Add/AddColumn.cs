@@ -12,11 +12,11 @@ namespace SchemaBuilder.Core.Implementations.Operations.Add
 
         public string TableName { get; private set; } = string.Empty;
 
-        public Column Column { get; private set; }
+        public ColumnInfo ColumnInfo { get; private set; }
 
-        public AddColumn(string columnName, Func<Column, Column> func)
+        public AddColumn(string columnName, Func<ColumnInfo, ColumnInfo> func)
         {
-            Column = func(new Column());
+            ColumnInfo = func(new ColumnInfo());
             ColumnName = columnName;
         }
 

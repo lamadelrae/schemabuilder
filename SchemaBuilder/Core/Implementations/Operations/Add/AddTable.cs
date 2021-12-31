@@ -10,16 +10,16 @@ namespace SchemaBuilder.Core.Implementations.Operations.Add
     {
         public string TableName { get; private set; }
 
-        public Dictionary<string, Column> Columns { get; private set; } = new Dictionary<string, Column>();
+        public Dictionary<string, ColumnInfo> Columns { get; private set; } = new Dictionary<string, ColumnInfo>();
 
         public AddTable(string tableName)
         {
             TableName = tableName;
         }
 
-        public IAddTableContract Column(string columnName, Func<Column, Column> func)
+        public IAddTableContract Column(string columnName, Func<ColumnInfo, ColumnInfo> func)
         {
-            Columns.Add(columnName, func(new Column()));
+            Columns.Add(columnName, func(new ColumnInfo()));
             return this;
         }
 

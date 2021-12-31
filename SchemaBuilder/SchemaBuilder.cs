@@ -12,7 +12,7 @@ namespace SchemaBuilder
         /// <param name="connection"></param>
         /// <param name="scripts"></param>
         public static void UseSchemaBuilder(SqlConnection connection, IEnumerable<Script> scripts)
-            => new ScriptDispatcher(connection).DispatchAll(scripts);
+            => new ScriptDispatcher(connection).DispatchAll(scripts.OrderBy(s => s.Id));
 
         /// <summary>
         /// /// Specify the connection and this method runs SchemaBuilder.
@@ -24,7 +24,8 @@ namespace SchemaBuilder
             IEnumerable<Script> scripts = AppDomain.CurrentDomain
                 .GetAssemblies().SelectMany(x => x.GetTypes())
                 .Where(x => x.BaseType == typeof(Script))
-                .Select(x => (Script)Activator.CreateInstance(x)!);
+                .Select(x => (Script)Activator.CreateInstance(x)!)
+                .OrderBy(s => s.Id);
 
             dispatcher.DispatchAll(scripts);
         }

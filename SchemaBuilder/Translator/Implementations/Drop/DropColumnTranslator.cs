@@ -12,7 +12,7 @@ namespace SchemaBuilder.Translator.Implementations.Drop
 
         public string Translate()
         {
-            return $"ALTER TABLE {_dataHolder.TableName} DROP {_dataHolder.ColumnName}";
+            return $"ALTER TABLE {_dataHolder.TableName} DROP COLUMN {_dataHolder.ColumnName}";
         }
     }
 }
