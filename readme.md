@@ -52,7 +52,7 @@ public class ComplexScript : Script
 }
 ```
 <hr>
-As you can see, we have a structure where each class is a script, and when you instance the Script, you have to inform the script id.
+As you can see, we have a structure where each class is a script, and when you instantiate the Script, you have to inform the script id.
 
 Internally, the schema builder is going to order these scripts by their id and execute them, so it is very important to never alter the order of the scripts.
 
