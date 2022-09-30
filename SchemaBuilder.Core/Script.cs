@@ -1,6 +1,8 @@
 ﻿using SchemaBuilder.Core.Interfaces.Operations;
 using SchemaBuilder.Core.Interfaces.Operations.Add;
+using SchemaBuilder.Core.Interfaces.Operations.Drop;
 using SchemaBuilder.Core.Operations.Add;
+using SchemaBuilder.Core.Operations.Drop;
 
 namespace SchemaBuilder.Core
 {
@@ -20,6 +22,13 @@ namespace SchemaBuilder.Core
             var add = new Add();
             Roots.Enqueue(add);
             return add;
+        }
+
+        public IDropContract Drop()
+        {
+            var drop = new Drop();
+            Roots.Enqueue(drop);
+            return drop;
         }
     }
 }
