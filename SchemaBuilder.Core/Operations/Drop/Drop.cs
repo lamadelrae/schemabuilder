@@ -1,6 +1,7 @@
 ﻿using SchemaBuilder.Core.Interfaces.Operations;
 using SchemaBuilder.Core.Interfaces.Operations.Drop;
 using SchemaBuilder.Core.Interfaces.Operations.Drop.Column;
+using SchemaBuilder.Core.Interfaces.Operations.Drop.Table;
 using SchemaBuilder.Core.Operations.Drop.Column;
 using SchemaBuilder.Core.Operations.Drop.Table;
 

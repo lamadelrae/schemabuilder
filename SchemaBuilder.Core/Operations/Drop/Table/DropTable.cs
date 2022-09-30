@@ -1,5 +1,5 @@
 ﻿using SchemaBuilder.Core.Interfaces.Operations;
-using SchemaBuilder.Core.Interfaces.Operations.Drop.Column;
+using SchemaBuilder.Core.Interfaces.Operations.Drop.Table;
 using SchemaBuilder.Core.Shared;
 
 namespace SchemaBuilder.Core.Operations.Drop.Table
