@@ -6,11 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Interfaces\Operations\Rename\Column\" />
-    <Folder Include="Interfaces\Operations\Rename\Table\" />
-    <Folder Include="Operations\Rename\Column\" />
-    <Folder Include="Operations\Rename\Table\" />
-  </ItemGroup>
-
 </Project>

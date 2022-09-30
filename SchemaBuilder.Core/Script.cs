@@ -1,8 +1,10 @@
 ﻿using SchemaBuilder.Core.Interfaces.Operations;
 using SchemaBuilder.Core.Interfaces.Operations.Add;
 using SchemaBuilder.Core.Interfaces.Operations.Drop;
+using SchemaBuilder.Core.Interfaces.Operations.Rename;
 using SchemaBuilder.Core.Operations.Add;
 using SchemaBuilder.Core.Operations.Drop;
+using SchemaBuilder.Core.Operations.Rename;
 
 namespace SchemaBuilder.Core
 {
@@ -29,6 +31,13 @@ namespace SchemaBuilder.Core
             var drop = new Drop();
             Roots.Enqueue(drop);
             return drop;
+        }
+
+        public IRenameContract Rename()
+        {
+            var rename = new Rename();
+            Roots.Enqueue(rename);
+            return rename;
         }
     }
 }
