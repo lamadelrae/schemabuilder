@@ -3,20 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SchemaBuilder", "SchemaBuilder\SchemaBuilder.csproj", "{0A278AE4-E3A8-4B0C-8EC7-982F249F4793}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8FCD2B5E-7294-4ED4-9941-0F9E5B3F64AF}"
 	ProjectSection(SolutionItems) = preProject
 		readme.md = readme.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SchemaBuilder.Tests.Unit", "SchemaBuilder.Tests.Unit\SchemaBuilder.Tests.Unit.csproj", "{7FF1E1A2-2FF6-487D-8A40-0608E01FB2C0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchemaBuilder.Core", "SchemaBuilder.Core\SchemaBuilder.Core.csproj", "{BCA717D3-4038-483B-A40B-D69DDD185F53}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchemaBuilder.Tests.Integration", "SchemaBuilder.Tests.Integration\SchemaBuilder.Tests.Integration.csproj", "{C2EB33D1-C845-44BA-B814-02C3F92F4364}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F655CA45-C230-4151-9821-E10EE9ED81D8}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchemaBuilder.Tests.SharedKernel", "SchemaBuilder.Tests.SharedKernel\SchemaBuilder.Tests.SharedKernel.csproj", "{AFC88CCE-3696-47F7-90E0-44F4E7CFF932}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchemaBuilder.SqlServer", "SchemaBuilder.SqlServer\SchemaBuilder.SqlServer.csproj", "{B53BA103-487B-44EA-B12C-D5EA2A29DF96}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,30 +18,17 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0A278AE4-E3A8-4B0C-8EC7-982F249F4793}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0A278AE4-E3A8-4B0C-8EC7-982F249F4793}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0A278AE4-E3A8-4B0C-8EC7-982F249F4793}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0A278AE4-E3A8-4B0C-8EC7-982F249F4793}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7FF1E1A2-2FF6-487D-8A40-0608E01FB2C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7FF1E1A2-2FF6-487D-8A40-0608E01FB2C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7FF1E1A2-2FF6-487D-8A40-0608E01FB2C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7FF1E1A2-2FF6-487D-8A40-0608E01FB2C0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C2EB33D1-C845-44BA-B814-02C3F92F4364}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C2EB33D1-C845-44BA-B814-02C3F92F4364}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C2EB33D1-C845-44BA-B814-02C3F92F4364}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C2EB33D1-C845-44BA-B814-02C3F92F4364}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AFC88CCE-3696-47F7-90E0-44F4E7CFF932}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AFC88CCE-3696-47F7-90E0-44F4E7CFF932}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AFC88CCE-3696-47F7-90E0-44F4E7CFF932}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AFC88CCE-3696-47F7-90E0-44F4E7CFF932}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCA717D3-4038-483B-A40B-D69DDD185F53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCA717D3-4038-483B-A40B-D69DDD185F53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCA717D3-4038-483B-A40B-D69DDD185F53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCA717D3-4038-483B-A40B-D69DDD185F53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B53BA103-487B-44EA-B12C-D5EA2A29DF96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B53BA103-487B-44EA-B12C-D5EA2A29DF96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B53BA103-487B-44EA-B12C-D5EA2A29DF96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B53BA103-487B-44EA-B12C-D5EA2A29DF96}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{7FF1E1A2-2FF6-487D-8A40-0608E01FB2C0} = {F655CA45-C230-4151-9821-E10EE9ED81D8}
-		{C2EB33D1-C845-44BA-B814-02C3F92F4364} = {F655CA45-C230-4151-9821-E10EE9ED81D8}
-		{AFC88CCE-3696-47F7-90E0-44F4E7CFF932} = {F655CA45-C230-4151-9821-E10EE9ED81D8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C16AE958-D065-41E3-B0DB-FDD4A63FC525}

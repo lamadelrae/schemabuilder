@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Interfaces\Operations\Drop\Column\" />
+    <Folder Include="Interfaces\Operations\Drop\Table\" />
+    <Folder Include="Interfaces\Operations\Rename\Column\" />
+    <Folder Include="Interfaces\Operations\Rename\Table\" />
+    <Folder Include="Operations\Drop\Column\" />
+    <Folder Include="Operations\Drop\Table\" />
+    <Folder Include="Operations\Rename\Column\" />
+    <Folder Include="Operations\Rename\Table\" />
+  </ItemGroup>
+
+</Project>
