@@ -2,11 +2,8 @@
 using SchemaBuilder.Core.Interfaces.Operations.Add;
 using SchemaBuilder.Core.Interfaces.Operations.Drop;
 using SchemaBuilder.Core.Interfaces.Operations.Rename;
-using SchemaBuilder.Core.Operations.Add;
-using SchemaBuilder.Core.Operations.Drop;
-using SchemaBuilder.Core.Operations.Rename;
 
-namespace SchemaBuilder.Core
+namespace SchemaBuilder.Core.Operations
 {
     public abstract class Script
     {
@@ -21,21 +18,21 @@ namespace SchemaBuilder.Core
 
         public IAddContract Add()
         {
-            var add = new Add();
+            var add = new Add.Add();
             Roots.Enqueue(add);
             return add;
         }
 
         public IDropContract Drop()
         {
-            var drop = new Drop();
+            var drop = new Drop.Drop();
             Roots.Enqueue(drop);
             return drop;
         }
 
         public IRenameContract Rename()
         {
-            var rename = new Rename();
+            var rename = new Rename.Rename();
             Roots.Enqueue(rename);
             return rename;
         }
